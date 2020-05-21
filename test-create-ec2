@@ -1,0 +1,16 @@
+- name: ec2 launcher
+  hosts: localhost
+  gather_facts: False
+  connection: local
+  tasks:
+  - name: launching ec2
+    ec2:
+      instance_type: t2.micro
+      key_name: ec2admin
+      image: ami-0470e33cd681b2476
+      region: ap-south-1
+      group: default
+      count: 1
+      vpc_subnet_id: subnet-a43803cc
+      wait: yes
+      assign_public_ip: yes
