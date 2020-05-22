@@ -1,6 +1,7 @@
 - name: create ec2 launch config
   hosts: localhost
   connection: local
+  become_user: ansadmin
   tasks:
   - name: ec2 lc create
     ec2_lc:
@@ -11,6 +12,3 @@
       security_groups: ['default']
       region: ap-south-1
       user_data_path: /root/user_data
-    ansible_become: true
-    ansible_become_user: ansadmin
-    ansible_become_pass: 123456
