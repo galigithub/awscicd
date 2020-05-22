@@ -2,7 +2,7 @@
   hosts: localhost
   connection: local
   become: yes
-  become_user: ansadmin
+  #become_user: ansadmin
   tasks:
   - name: ec2 lc create
     ec2_lc:
