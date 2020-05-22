@@ -1,9 +1,9 @@
 - name: create ec2 launch config
   hosts: localhost
   connection: local
-  #become: yes
+  become: yes
   #become_method: su
-  #become_user: ansadmin
+  become_user: ansadmin
   tasks:
   - name: ec2 lc create
     ec2_lc:
