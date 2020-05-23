@@ -1,10 +1,14 @@
 - name: validator
   hosts: localhost
   connection: local
+  vars_files:
+     - /home/rajgali83/accesskey
   tasks:
   - name: gather facts
     ec2_elb_facts:
-      region: ap-south-1
+      aws_access_key: "{{ accesskey }}"
+      aws_secret_key: "{{ secretkey }}"
+      region: us-west-2
       names: shivawebelb
     register: elb_facts
     
