@@ -9,7 +9,7 @@
   - name: launching ec2
     ec2:
       aws_access_key: "{{ accesskey }}"
-      aws_secret_key: BARi9WDZ/co4JUns70GX0XFIoSEuiojiOSUTO7iQ
+      aws_secret_key: "{{ secretkey }}"
       instance_type: t2.micro
       key_name: ec2admin
       image: ami-0470e33cd681b2476
