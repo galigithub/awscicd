@@ -11,7 +11,7 @@
       aws_access_key: "{{ accesskey }}"
       aws_secret_key: "{{ secretkey }}"
       instance_type: t2.micro
-      key_name: ec2admin
+      #key_name: ec2admin
       image: ami-0470e33cd681b2476
       region: ap-south-1
       group: default
