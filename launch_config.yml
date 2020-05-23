@@ -11,7 +11,7 @@
       name: "{{ launch_config }}"
       image_id: ami-0470e33cd681b2476
       instance_type: t2.micro
-      key_name: ec2admin
+      #key_name: ec2admin
       security_groups: ['default']
       region: ap-south-1
       user_data_path: user_data
