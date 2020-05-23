@@ -10,7 +10,7 @@
       aws_secret_key: "{{ secretkey }}"
       name: shivawebelb
       state: present
-      region: ap-south-1
+      region: us-west-2
       cross_az_load_balancing: yes
       listeners:
         - protocol: http
@@ -18,8 +18,8 @@
           instance_port: 80
       tags:
         name: shivaelb
-      security_group_ids: sg-f37afc91
-      zones: ap-south-1a
+      security_group_ids: sg-fc055eac
+      zones: us-west-2a
       health_check:
         ping_protocol: http
         ping_port: 80
