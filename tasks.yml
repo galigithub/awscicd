@@ -2,6 +2,7 @@
   hosts: localhost
   gather_facts: False
   connection: local
+  become: False
   tasks:
   - name: launching ec2
     ec2:
