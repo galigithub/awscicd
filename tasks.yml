@@ -2,11 +2,13 @@
   hosts: localhost
   gather_facts: False
   connection: local
+  var_files:
+     - /home/rajgali83/accesskey
   #become: False
   tasks:
   - name: launching ec2
     ec2:
-      aws_access_key: AKIASDZCV4F5RESPZ2MV
+      aws_access_key: {{ accesskey }}
       aws_secret_key: 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
       instance_type: t2.micro
       key_name: ec2admin
