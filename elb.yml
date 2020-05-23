@@ -8,7 +8,7 @@
     ec2_elb_lb: 
       aws_access_key: "{{ accesskey }}"
       aws_secret_key: "{{ secretkey }}"
-      name: shiva_web_elb
+      name: shivawebelb
       state: present
       region: ap-south-1
       cross_az_load_balancing: yes
@@ -17,7 +17,7 @@
           load_balancer_port: 80
           instance_port: 80
       tags:
-        name: shiva_elb
+        name: shivaelb
       security_group_ids: sg-f37afc91
       zones: ap-south-1a
       health_check:
