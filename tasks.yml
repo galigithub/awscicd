@@ -3,7 +3,7 @@
   gather_facts: False
   connection: local
   var_files:
-     - //home//rajgali83//accesskey
+     - /home/rajgali83/accesskey
   #become: False
   tasks:
   - name: launching ec2
