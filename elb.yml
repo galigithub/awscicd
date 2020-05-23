@@ -18,7 +18,7 @@
           instance_port: 80
       tags:
         name: shivaelb
-      security_group_ids: sg-fc055eac
+      security_group_ids: sg-0b4e9ad368734a1ed
       zones: us-west-2a
       health_check:
         ping_protocol: http
