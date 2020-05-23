@@ -1,6 +1,5 @@
 ---
-- name: ec2 launcher
-  hosts: localhost
+- hosts: localhost
   gather_facts: False
   connection: local
   var_files:
