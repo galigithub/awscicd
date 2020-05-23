@@ -18,4 +18,4 @@
       url: http://{{ elb_facts.elbs.0.dns_name }}
       return_content: yes
     register: this
-    failed_when: "'Hello from Asg' not in this.content"
+    failed_when: "'Hello from Shiva' not in this.content"
