@@ -1,10 +1,10 @@
+---
 - name: ec2 launcher
   hosts: localhost
   gather_facts: False
   connection: local
-  include_vars:
+  var_files:
      - /home/rajgali83/accesskey
-  #become: False
   tasks:
   - name: launching ec2
     ec2:
