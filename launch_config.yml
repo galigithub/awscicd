@@ -9,9 +9,9 @@
       aws_access_key: "{{ accesskey }}"
       aws_secret_key: "{{ secretkey }}"
       name: "{{ launch_config }}"
-      image_id: ami-0470e33cd681b2476
+      image_id: ami-0d6621c01e8c2de2c
       instance_type: t2.micro
       #key_name: ec2admin
       security_groups: ['default']
-      region: ap-south-1
+      region: us-west-2
       user_data_path: user_data
