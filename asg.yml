@@ -8,10 +8,10 @@
     ec2_asg: 
       aws_access_key: "{{ accesskey }}"
       aws_secret_key: "{{ secretkey }}"
-      name: shiva_web_asg
+      name: shivawebasg
       region: ap-south-1
       availability_zones: ['ap-south-1a']
-      load_balancers: shiva_web_elb
+      load_balancers: shivawebelb
       launch_config_name: "{{ launch_config }}"
       min_size: 1
       max_size: 1
