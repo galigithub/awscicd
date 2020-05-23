@@ -1,13 +1,17 @@
 - name: create auto scaling group
   hosts: localhost
   connection: local
+  vars_files:
+     - /home/rajgali83/accesskey
   tasks:
   - name: create auto scaling group
     ec2_asg: 
+      aws_access_key: "{{ accesskey }}"
+      aws_secret_key: "{{ secretkey }}"
       name: shiva_web_asg
       region: ap-south-1
       availability_zones: ['ap-south-1a']
-      load_balancers: shivawebelb
+      load_balancers: shiva_web_elb
       launch_config_name: "{{ launch_config }}"
       min_size: 1
       max_size: 1
