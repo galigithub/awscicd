@@ -2,7 +2,7 @@
   hosts: localhost
   connection: local
   vars_files:
-     - /home/rajgali83/pass
+     - /home/rajgali83/accesskey
   tasks:
   - name: ec2 lc create
     ec2_lc:
