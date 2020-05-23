@@ -1,8 +1,9 @@
 ---
-- hosts: localhost
+- name: ec2 launcher
+  hosts: localhost
   gather_facts: False
   connection: local
-  var_files:
+  vars_files:
      - /home/rajgali83/accesskey
   tasks:
   - name: launching ec2
