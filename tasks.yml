@@ -2,10 +2,12 @@
   hosts: localhost
   gather_facts: False
   connection: local
-  become: False
+  #become: False
   tasks:
   - name: launching ec2
     ec2:
+      aws_access_key: AKIASDZCV4F5RESPZ2MV
+      aws_secret_key: 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
       instance_type: t2.micro
       key_name: ec2admin
       image: ami-0470e33cd681b2476
