@@ -2,7 +2,7 @@
   hosts: localhost
   gather_facts: False
   connection: local
-  var_files:
+  include_vars:
      - /home/rajgali83/accesskey
   #become: False
   tasks:
