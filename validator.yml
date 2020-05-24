@@ -4,12 +4,15 @@
   vars_files:
      - /home/rajgali83/accesskey
   tasks:
+  - name: wait for 5 mins
+    pause:
+      minutes: 5
   - name: gather facts
     ec2_elb_facts:
       aws_access_key: "{{ accesskey }}"
       aws_secret_key: "{{ secretkey }}"
       region: us-west-2
-      names: shivawebelb
+      names: "{{ elb_name }}"
     register: elb_facts
     
   - debug:
