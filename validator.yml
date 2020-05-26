@@ -4,6 +4,9 @@
   vars_files:
      - /home/rajgali83/accesskey
   tasks:
+  - name: wait for 5 mins
+    pause:
+      minutes: 5
   - name: gather facts
     ec2_elb_facts:
       aws_access_key: "{{ accesskey }}"
