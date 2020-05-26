@@ -16,7 +16,7 @@
        aws_access_key: "{{ accesskey }}"
        aws_secret_key: "{{ secretkey }}"
        state: present
-       privatezone: yes
+       private_zone: yes
        zone: shivawebaddress.com
        record: www.shivawebaddress.com
        type: A
