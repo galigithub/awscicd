@@ -16,8 +16,8 @@
        aws_access_key: "{{ accesskey }}"
        aws_secret_key: "{{ secretkey }}"
        state: present
-       zone: easywebaddress.com
-       record: new.easywebaddress.com
+       zone: shivawebaddress.com
+       record: www.shivawebaddress.com
        type: A
        value: "{{ elb_info.elbs.0.dns_name }}"
        alias: True
