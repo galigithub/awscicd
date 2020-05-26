@@ -5,21 +5,21 @@
      - /home/rajgali83/accesskey
   tasks:
   - name: Get elb facts
-    ec2_elb_facts:
+    ec2_elb_info:
        aws_access_key: "{{ accesskey }}"
        aws_secret_key: "{{ secretkey }}"
        region: us-west-2
        names: "{{ elb_name }}"
-    register: elb_facts
+    register: elb_info
   - name: create dns record
     route53:
        aws_access_key: "{{ accesskey }}"
        aws_secret_key: "{{ secretkey }}"
        state: present
        zone: easywebaddress.com
-       record: www.easywebaddress.com
+       record: new.easywebaddress.com
        type: A
-       value: "{{ elb_facts.elbs.0.dns_name }}"
+       value: "{{ elb_info.elbs.0.dns_name }}"
        alias: True
-       alias_hosted_zone_id: "{{ elb_facts.elbs.0.hosted_zone_id }}"
+       alias_hosted_zone_id: "{{ elb_info.elbs.0.hosted_zone_id }}"
        overwrite: yes
