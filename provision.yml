@@ -13,8 +13,15 @@
           #disable_rollback: true
           template_url: https://shiva-cloudformation-templates.s3-us-west-2.amazonaws.com/cloudformation.template
           template_parameters:
+             #CidrBlock: 10.10.12.0/24
+             pubAvailabilityZone: us-west-2a
+             #pubSubnetCIDR: 10.10.12.0/25
+             privAvailabilityZone: us-west-2c
+             #privSubnetCIDR: 10.10.12.128/25
+             InstanceName: 'shivainfra' 
+             #InstanceType: t2.micro
              KeyName: awscf
-             SecurityGroupIds: sg-0771c3a412fe08724
-             InstanceType: t2.micro
-             Image: ami-0d6621c01e8c2de2c
-             ServerName: 'shivainfracf'
+             Environment: DEV
+             #InstancePublicIP: "True"
+             #InstanceAMI: "ami-0d6621c01e8c2de2c"
+             
