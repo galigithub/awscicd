@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Cloud Formation Demo
+Parameters:
+   SeccurityGroupIds:
+      Type: List<AWS::EC2::SecurityGroup::Id>
+      Description: Security you want
+   KeyName:
+      Type: AWS::EC2::KeyPair::KeyName
+      Description: Key to Use
+   InstanceType:
+      Type: String
+      Default: t2.micro
+   Image:
+      Type: String
+      Default: ami-0d6621c01e8c2de2c
+   ServerName:
+      Type: String
+      Description: Name your server
+
+Resources:
+   Ec2Instance:
+      Type: AWS::EC2::Instane
+      Properties:
+         ImageId: !Ref Image
+         InstanceType: !Ref InstanceType
+         KeyName: !Ref KeyName
+         SecurityGroupIds: !Ref SecurityGroupIds
+         UserData:
+            Fn::Base64:
+               !Sub |
+                    #!/bin/bash -ex
+                    yum install httpd -y;
+                    echo "<h1> I am a Cloud Architect </h1>" > /var/www/html/index.html;
+                    cd /var/www/html;
+                    chmod 755 index.html;
+                    service httpd start;
+                    chkconfig httpd on;
+         Tags:
+            -
+               Key: Name
+               Value: !Ref ServerName
