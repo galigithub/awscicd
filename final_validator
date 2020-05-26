@@ -1,0 +1,13 @@
+- name: final validator
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: wait for 5 minutes
+    pause:
+      minutes: 5
+    
+  - uri:
+      url: http://www.shivawebaddress.com
+      return_content: yes
+    register: this
+    failed_when: "'Hello from Shiva' not in this.content"
