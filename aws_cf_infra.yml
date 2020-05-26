@@ -53,7 +53,7 @@ Parameters:
 
   KeyName:
     Description: The EC2 Key Pair to allow SSH access to the instances
-    Type: AWS::EC2::KeyPair::awscf
+    Type: AWS::EC2::KeyPair::KeyName
     Default: awscf
     ConstraintDescription: must be the name of an existing EC2 KeyPair.
 
