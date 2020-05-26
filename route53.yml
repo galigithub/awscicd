@@ -16,11 +16,10 @@
        aws_access_key: "{{ accesskey }}"
        aws_secret_key: "{{ secretkey }}"
        state: present
-       private_zone: yes
        zone: shivawebaddress.com
        record: www.shivawebaddress.com
        type: A
-       value: "dualstack.{{ elb_facts.elbs.0.dns_name }}"
+       value: "{{ elb_facts.elbs.0.dns_name }}"
        alias: True
        alias_hosted_zone_id: "{{ elb_facts.elbs.0.hosted_zone_id }}"
        overwrite: yes
