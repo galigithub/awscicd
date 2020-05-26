@@ -1,0 +1,20 @@
+- hosts: localhost
+  connection: local
+  vars_files:
+     - /home/rajgali83/accesskey
+  tasks:
+     - name: EC2 creation
+       cloudformation:
+          aws_access_key: "{{ accesskey }}"
+          aws_secret_key: "{{ secretkey }}"
+          stack_name: 'shivacf'
+          state: present
+          region: us-west-2
+          disable_rollback: true
+          template_url: https://shiva-cloudformation-templates.s3-us-west-2.amazonaws.com/cloudformation.template
+          template_parameters:
+             KeyName: awscfuser
+             SecurityGroupIds: sg-0771c3a412fe08724
+             InstanceType: t2.micro
+             Image: ami-0d6621c01e8c2de2c
+             ServerName: 'shivainfracf'
