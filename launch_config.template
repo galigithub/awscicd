@@ -205,7 +205,7 @@ Resources:
         LaunchConfigurationName: { "Ref" : "LaunchConfigStage" }
         MaxSize: !Ref MaxSizeASG
         MinSize: !Ref MinSizeASG
-        VPCZoneIdentifier: { "Ref" : "pubSubnet" }
+        VPCZoneIdentifier: [ { "Ref" : "pubSubnet" } ]
         Tags:
            -
               Key: type
