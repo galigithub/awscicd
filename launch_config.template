@@ -198,9 +198,7 @@ Resources:
   MyLoadBalancer:
      Type: AWS::ElasticLoadBalancing::LoadBalancer
      Properties:
-        SecurityGroups: 
-           - !Ref WebSecGrp
-        AvailabilityZones: [ { "Ref" : "pubAvailabilityZone" } ]
+        #AvailabilityZones: [ { "Ref" : "pubAvailabilityZone" } ]
         Listeners:
            - Protocol: http
              LoadBalancerPort: 80
@@ -218,14 +216,14 @@ Resources:
      Type: AWS::AutoScaling::AutoScalingGroup
      Properties:
         AutoScalingGroupName: Shiva Cfn AutoScalingGroup
-        #AvailabilityZones: [ { "Ref" : "pubAvailabilityZone" } ] 
+        AvailabilityZones: [ { "Ref" : "pubAvailabilityZone" } ] 
         DesiredCapacity: !Ref DesiredCapacityASG
         Cooldown: 120
         LaunchConfigurationName: { "Ref" : "LaunchConfigStage" }
         LoadBalancerNames : [ { "Ref" : "MyLoadBalancer" } ]
         MaxSize: !Ref MaxSizeASG
         MinSize: !Ref MinSizeASG
-        #VPCZoneIdentifier: [ { "Ref" : "pubSubnet" } ]
+        VPCZoneIdentifier: [ { "Ref" : "pubSubnet" } ]
         Tags:
            -
               Key: type
