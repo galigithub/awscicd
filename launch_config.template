@@ -218,7 +218,7 @@ Resources:
      Type: AWS::AutoScaling::AutoScalingGroup
      Properties:
         AutoScalingGroupName: Shiva Cfn AutoScalingGroup
-        AvailabilityZones: [ { "Ref" : "pubAvailabilityZone" } ] 
+        #AvailabilityZones: [ { "Ref" : "pubAvailabilityZone" } ] 
         DesiredCapacity: !Ref DesiredCapacityASG
         Cooldown: 120
         LaunchConfigurationName: { "Ref" : "LaunchConfigStage" }
