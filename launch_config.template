@@ -198,6 +198,8 @@ Resources:
   MyLoadBalancer:
      Type: AWS::ElasticLoadBalancing::LoadBalancer
      Properties:
+        SecurityGroups: 
+           - !Ref WebSecGrp
         AvailabilityZones: [ { "Ref" : "pubAvailabilityZone" } ]
         Listeners:
            - Protocol: http
@@ -210,7 +212,6 @@ Resources:
            Interval: '30'
            Timeout: '5'
         CrossZone: true
-        VpcId: !Ref myDemoVPC
   
   
   AutoScalingGroup:
@@ -224,7 +225,7 @@ Resources:
         LoadBalancerNames : [ { "Ref" : "MyLoadBalancer" } ]
         MaxSize: !Ref MaxSizeASG
         MinSize: !Ref MinSizeASG
-        VPCZoneIdentifier: [ { "Ref" : "pubSubnet" } ]
+        #VPCZoneIdentifier: [ { "Ref" : "pubSubnet" } ]
         Tags:
            -
               Key: type
