@@ -186,11 +186,11 @@ Resources:
         CidrIp: 0.0.0.0/0
       VpcId: !Ref myDemoVPC
 
-  LaunchConfiguration:
+  LaunchConfigStage:
      Type: AWS::AutoScaling::LaunchConfiguration
      Properties:
         KeyName: !Ref KeyName
-        ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", 64]
+        ImageId: "ami-0d6621c01e8c2de2c"
         SecurityGroups: 
            - !Ref WebSecGrp
         InstanceType: !Ref InstanceType 
@@ -202,7 +202,7 @@ Resources:
         AvailabilityZones: [ { "Ref" : "pubAvailabilityZone" } ] 
         DesiredCapacity: !Ref DesiredCapacityASG
         Cooldown: 120
-        LaunchConfigurationName: { "Ref" : "LaunchConfiguration" }
+        LaunchConfigurationName: { "Ref" : "LaunchConfigStage" }
         MaxSize: !Ref MaxSizeASG
         MinSize: !Ref MinSizeASG
         #VPCZoneIdentifier:
@@ -215,9 +215,9 @@ Resources:
   
               
 Outputs:
-   AutoscalingGroup:
+   AutoscalingGroupDetails:
      Description: "The newly created asg"
      Value: !Ref AutoScalingGroup
-   LaunchConfig:
+   LaunchConfigDetails:
      Description: "the newly created launch config"
-     Value: !Ref LaunchConfiguration
+     Value: !Ref LaunchConfigStage
