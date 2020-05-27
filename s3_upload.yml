@@ -9,3 +9,4 @@
        aws_secret_key: "{{ secretkey }}"
        bucket: "shiva-cloudformation-templates"
        file_root: "~/launch_config.template"
+       region: us-west-2
