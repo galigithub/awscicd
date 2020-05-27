@@ -11,7 +11,7 @@
           state: present
           region: us-west-2
           #disable_rollback: true
-          template_url: https://shiva-cloudformation-templates.s3-us-west-2.amazonaws.com/complete_infra.template
+          template_url: https://shiva-cloudformation-templates.s3-us-west-2.amazonaws.com/launch_config.template
           template_parameters:
              #CidrBlock: 10.10.12.0/24
              pubAvailabilityZone: us-west-2a
@@ -22,6 +22,9 @@
              #InstanceType: t2.micro
              KeyName: awscf
              Environment: DEV
+             MaxSizeASG: 1
+             MinSizeASG: 1
+             DesiredCapacityASG: 1
              #InstancePublicIP: "True"
              #InstanceAMI: "ami-0d6621c01e8c2de2c"
              
