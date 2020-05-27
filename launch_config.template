@@ -195,6 +195,24 @@ Resources:
            - !Ref WebSecGrp
         InstanceType: !Ref InstanceType 
   
+  MyLoadBalancer:
+     Type: AWS::ElasticLoadBalancing::LoadBalancer
+     Properties:
+        SecurityGroups:
+           - !Ref WebSecGrp
+        AvailabilityZones: [ { "Ref" : "pubAvailabilityZone" } ]
+        Listeners:
+           - Protocol: http
+             LoadBalancerPort: 80
+             InstancePort: 80
+        HealthCheck:
+           Target: http:80/
+           HealthyThreshold: '2'
+           UnhealthyThreshold: '2'
+           Interval: '30'
+           Timeout: '5'
+        CrossZone: true
+  
   AutoScalingGroup:
      Type: AWS::AutoScaling::AutoScalingGroup
      Properties:
@@ -203,6 +221,7 @@ Resources:
         DesiredCapacity: !Ref DesiredCapacityASG
         Cooldown: 120
         LaunchConfigurationName: { "Ref" : "LaunchConfigStage" }
+        LoadBalancerNames : [ { "Ref" : "MyLoadBalancer" } ]
         MaxSize: !Ref MaxSizeASG
         MinSize: !Ref MinSizeASG
         VPCZoneIdentifier: [ { "Ref" : "pubSubnet" } ]
