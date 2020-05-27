@@ -189,7 +189,16 @@ Resources:
         ImageId: "ami-0d6621c01e8c2de2c"
         SecurityGroups: 
            - !Ref WebSecGrp
-        InstanceType: !Ref InstanceType 
+        InstanceType: !Ref InstanceType
+        UserData: { "Fn::Base64" : { "Fn::Join" : ["", [
+             "#!/bin/bash -xe\n",
+             "yum install -y httpd\n", 
+             "systemctl start httpd.service\n",
+             "systemctl enable httpd.service\n",
+             "echo '"Hello from Shiva"' > /var/www/html/index.html", "\n"
+             ]]}}
+  
+  
   
   MyLoadBalancer:
      Type: AWS::ElasticLoadBalancing::LoadBalancer
