@@ -13,8 +13,8 @@ Resources:
       AvailabilityZones: [ { "Ref" : "pubAvailabilityZone" } ]
       Listeners:
         - Protocol: http
-          load_balancer_port: 80
-          instance_port: 80
+          LoadBalancerPort: 80
+          InstancePort: 80
       HealthCheck:
         Target: http:80/
         HealthyThreshold: '2'
