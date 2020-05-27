@@ -199,6 +199,7 @@ Resources:
      Type: AWS::ElasticLoadBalancing::LoadBalancer
      Properties:
         #AvailabilityZones: [ { "Ref" : "pubAvailabilityZone" } ]
+        Subnets: [ { "Ref" : "pubSubnet" } ]
         Listeners:
            - Protocol: http
              LoadBalancerPort: 80
