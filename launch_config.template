@@ -24,6 +24,9 @@ Parameters:
     Description: VPC CIDR Block for the Public Subnet (eg 10.0.0.0/24)
     Type: String
 
+  LaunchConfigurationName:
+    Type: String
+  
   InstanceName:
     Type: String
 
@@ -194,7 +197,7 @@ Resources:
         SecurityGroups: 
            - !Ref WebSecGrp
         InstanceType: !Ref InstanceType 
-        LaunchConfigurationName: "ShivaCfnLaunchConfiguration"
+        LaunchConfigurationName: !Ref LaunchConfigurationName
   
   AutoScalingGroup:
      Type: AWS::AutoScaling::AutoScalingGroup
