@@ -210,7 +210,7 @@ Resources:
            Interval: '30'
            Timeout: '5'
         CrossZone: true
-     VpcId: !Ref myDemoVPC
+        VpcId: !Ref myDemoVPC
   
   
   AutoScalingGroup:
