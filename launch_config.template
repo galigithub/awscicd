@@ -209,11 +209,8 @@ Resources:
         Tags:
            -
               Key: type
-              Value: shiva_cfn_asg 
-  
-  
-  
-  
+              Value: shiva_cfn_asg
+              PropagateAtLaunch: true  
   
   
               
