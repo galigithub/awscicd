@@ -10,6 +10,7 @@ Resources:
   MyLoadBalancer:
     Type: AWS::ElasticLoadBalancing::LoadBalancer
     Properties:
+      SecurityGroups: [ 'sg-0771c3a412fe08724' ]
       AvailabilityZones: [ { "Ref" : "pubAvailabilityZone" } ]
       Listeners:
         - Protocol: http
