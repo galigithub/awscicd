@@ -195,14 +195,6 @@ Resources:
            - !Ref WebSecGrp
         InstanceType: !Ref InstanceType 
         LaunchConfigurationName: ShivaCfnLaunchConfiguration
-        UserData:
-           Fn::Base64:
-             !Sub |
-                #!/bin/bash -x
-                yum install httpd -y
-                systemctl start httpd.service
-                systemctl enable httpd.service
-                echo echo "Hello from Shiva" > /var/www/html/index.html
   
   AutoScalingGroup:
      Type: AWS::AutoScaling::AutoScalingGroup
@@ -230,7 +222,7 @@ Resources:
 Outputs:
    AutoscalingGroup:
      Description: "The newly created asg"
-     Value: !Ref: "AutoScalingGroup"
+     Value: !Ref AutoScalingGroup
    LaunchConfig:
      Description: "the newly created launch config"
-     Value: !Ref: "LaunchConfiguration"
+     Value: !Ref LaunchConfiguration
