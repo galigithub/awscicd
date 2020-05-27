@@ -68,9 +68,6 @@ Parameters:
   DesiredCapacityASG:
     Description: "Enter the desired capacity for the ASG"
     Type: String  
-  
-  
-  
 
 Mappings:
   RegionMap: 
@@ -78,7 +75,6 @@ Mappings:
       "64": "ami-0d6621c01e8c2de2c"
     #ap-south-1: 
      # "64": "ami-0d6621c01e8c2de2c"
-
 
 Resources:
   myDemoVPC:
@@ -211,8 +207,6 @@ Resources:
               Key: type
               Value: shiva_cfn_asg
               PropagateAtLaunch: true  
-  
-  
               
 Outputs:
    AutoscalingGroupDetails:
