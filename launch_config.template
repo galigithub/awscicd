@@ -24,7 +24,7 @@ Parameters:
     Description: VPC CIDR Block for the Public Subnet (eg 10.0.0.0/24)
     Type: String
 
-  LaunchConfigurationName:
+  LaunchConfigName:
     Type: String
   
   InstanceName:
@@ -197,7 +197,7 @@ Resources:
         SecurityGroups: 
            - !Ref WebSecGrp
         InstanceType: !Ref InstanceType 
-        LaunchConfigurationName: !Ref LaunchConfigurationName
+        LaunchConfigurationName: !Ref LaunchConfigName
   
   AutoScalingGroup:
      Type: AWS::AutoScaling::AutoScalingGroup
