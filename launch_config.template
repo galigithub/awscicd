@@ -198,6 +198,8 @@ Resources:
   MyLoadBalancer:
      Type: AWS::ElasticLoadBalancing::LoadBalancer
      Properties:
+        SecurityGroups: 
+           - !Ref WebSecGrp
         AvailabilityZones: [ { "Ref" : "pubAvailabilityZone" } ]
         Listeners:
            - Protocol: http
