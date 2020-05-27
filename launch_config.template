@@ -228,8 +228,9 @@ Resources:
   
               
 Outputs:
-  WebServerPublicIPAddress:
-    Description: 'The public IP address of the EC2 Instance.'
-    Value: !GetAtt webServer.PublicDnsName
-    Export:
-      Name: !Sub '${AWS::StackName}-Public-DNS-Address'
+   AutoscalingGroup:
+     Description: "The newly created asg"
+     Value: !Ref: "AutoScalingGroup"
+   LaunchConfig:
+     Description: "the newly created launch config"
+     Value: !Ref: "LaunchConfiguration"
